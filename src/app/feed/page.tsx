@@ -4,18 +4,22 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AuthAPI } from "@/lib/api/auth-api";
 import { clientURL } from "@/constants/url";
+import FirstTimeForm from "@/components/first/first-time-form";
 
 export default function Feed() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-
+  const [isNewUser, setIsNewUser] = useState<boolean | null>(null);
+  //const [error, setError] = useState<string | null>(null);
+  const auth = new AuthAPI();
   useEffect(() => {
     const checkAuth = async () => {
-      const auth = new AuthAPI();
-      const status = await auth.getStatus();
-      setIsAuthenticated(status);
-
-      if (!status) {
+      try {
+        const status = await auth.getStatus();
+        setIsAuthenticated(status);
+        const firstTime = await auth.getNewUserStatus();
+        setIsNewUser(firstTime);
+      } catch (err) {
         router.push(clientURL);
       }
     };
@@ -24,8 +28,16 @@ export default function Feed() {
   }, [router]);
 
   if (isAuthenticated === null) {
-    return null;
+    return <p>Loading...</p>;
   }
 
-  return <h1>FeedPage</h1>;
+  if (isNewUser) {
+    return (
+      <div className="max-w-7xl flex justify-center items-center bg-dark h-[100vh]">
+        <FirstTimeForm />
+      </div>
+    );
+  } else {
+    return <p>Feed Page</p>;
+  }
 }

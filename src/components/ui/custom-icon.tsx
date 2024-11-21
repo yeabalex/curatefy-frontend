@@ -85,7 +85,7 @@ function SpotifyIcon({ className }: IconProps): JSX.Element {
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      fill="#1DB954"
+      fill="#121212"
       width="24"
       height="24"
     >
