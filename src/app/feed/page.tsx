@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AuthAPI } from "@/lib/api/auth-api";
 import { clientURL } from "@/constants/url";
-import FirstTimeForm from "@/components/first/first-time-form";
+import MultiPageForm from "@/components/first/multi-page-form";
 
 export default function Feed() {
   const router = useRouter();
@@ -34,7 +34,7 @@ export default function Feed() {
   if (isNewUser) {
     return (
       <div className="max-w-7xl flex justify-center items-center bg-dark h-[100vh]">
-        <FirstTimeForm />
+        <MultiPageForm />
       </div>
     );
   } else {
