@@ -2,7 +2,7 @@ import { genres } from "@/constants/genres";
 import { useEffect, useState } from "react";
 import FirstTimeForm from "../first-time-form";
 
-export default function GenresForm() {
+export default function GenresForm({ isValid }: { isValid: () => void }) {
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [displayedGenres, setDisplayedGenres] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -39,6 +39,7 @@ export default function GenresForm() {
     if (selectedGenres.length === 0) {
       setError("Please select at least one genre before proceeding.");
     } else {
+      isValid();
       console.log("Proceeding to next step with genres:", selectedGenres);
     }
   };
@@ -51,13 +52,14 @@ export default function GenresForm() {
   return (
     <FirstTimeForm
       searchTerm={searchTerm}
-      handleGenreSearch={handleGenreSearch}
-      displayedGenres={displayedGenres}
-      toggleGenre={toggleGenre}
-      selectedGenres={selectedGenres}
-      removeGenre={removeGenre}
+      handleSearch={handleGenreSearch}
+      displayedItems={displayedGenres}
+      toggleItems={toggleGenre}
+      selectedItems={selectedGenres}
+      removeItems={removeGenre}
       error={error}
       handleNext={handleNext}
+      keyWord="Gotta Know Your Favorite Genres"
     />
   );
 }

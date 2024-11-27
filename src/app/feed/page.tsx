@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { AuthAPI } from "@/lib/api/auth-api";
 import { clientURL } from "@/constants/url";
 import MultiPageForm from "@/components/first/multi-page-form";
+import MainSection from "@/components/main-section";
+import RightSideBar from "@/components/right";
 
 export default function Feed() {
   const router = useRouter();
@@ -38,6 +40,11 @@ export default function Feed() {
       </div>
     );
   } else {
-    return <p>Feed Page</p>;
+    return (
+      <div className="px-0 md:px-28 flex justify-between">
+        <MainSection />
+        <RightSideBar />
+      </div>
+    );
   }
 }
