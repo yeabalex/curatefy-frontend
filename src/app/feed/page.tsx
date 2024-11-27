@@ -33,7 +33,7 @@ export default function Feed() {
     return <p>Loading...</p>;
   }
 
-  if (isNewUser) {
+  if (!isNewUser) {
     return (
       <div className="max-w-7xl flex justify-center items-center bg-dark h-[100vh]">
         <MultiPageForm />

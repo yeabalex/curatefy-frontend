@@ -1,8 +1,15 @@
 import { genres } from "@/constants/genres";
 import { useEffect, useState } from "react";
 import FirstTimeForm from "../first-time-form";
+import { FormData } from "../multi-page-form";
 
-export default function GenresForm({ isValid }: { isValid: () => void }) {
+export default function GenresForm({
+  isValid,
+  populateFormData,
+}: {
+  isValid: () => void;
+  populateFormData: (data: FormData) => void;
+}) {
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
   const [displayedGenres, setDisplayedGenres] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -39,6 +46,7 @@ export default function GenresForm({ isValid }: { isValid: () => void }) {
     if (selectedGenres.length === 0) {
       setError("Please select at least one genre before proceeding.");
     } else {
+      populateFormData({ genres: [...selectedGenres] });
       isValid();
       console.log("Proceeding to next step with genres:", selectedGenres);
     }

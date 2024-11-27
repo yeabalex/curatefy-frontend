@@ -7,13 +7,14 @@ export class AuthAPI {
   private user: User | null = null;
   private status: boolean = false;
   private isNewUser: boolean = false;
+  static CONFIG = {
+    headers: { Origin: clientURL, "Content-Type": "application/json" },
+    withCredentials: true,
+  };
 
   private async fetchUserAPI(): Promise<User | null> {
     try {
-      const res = await axios.get(`${userURL}/get-user`, {
-        headers: { Origin: clientURL },
-        withCredentials: true,
-      });
+      const res = await axios.get(`${userURL}/get-user`, AuthAPI.CONFIG);
       this.user = res.data;
       return this.user;
     } catch (err) {
@@ -23,10 +24,7 @@ export class AuthAPI {
 
   private async fetchStatusAPI(): Promise<boolean> {
     try {
-      const res = await axios.get(`${userURL}/status`, {
-        headers: { Origin: clientURL },
-        withCredentials: true,
-      });
+      const res = await axios.get(`${userURL}/status`, AuthAPI.CONFIG);
       this.status = res.status === 200;
       return this.status;
     } catch (err) {
@@ -36,10 +34,7 @@ export class AuthAPI {
 
   private async fetchNewUserStatusAPI(): Promise<boolean> {
     try {
-      const res = await axios.get(`${userURL}/new-user-status`, {
-        headers: { Origin: clientURL },
-        withCredentials: true,
-      });
+      const res = await axios.get(`${userURL}/new-user-status`, AuthAPI.CONFIG);
       this.isNewUser = res.data;
       return this.isNewUser;
     } catch (err) {

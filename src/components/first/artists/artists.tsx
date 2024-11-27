@@ -4,8 +4,15 @@ import { useSearch } from "@/hooks/useSearch";
 import { SearchAPI } from "@/lib/api/search-api";
 import FirstTimeForm from "../first-time-form";
 import { Artist } from "@/types/artist.type";
+import { FormData } from "../multi-page-form";
 
-export default function ArtistsForm({ isValid }: { isValid: () => void }) {
+export default function ArtistsForm({
+  isValid,
+  populateFormData,
+}: {
+  isValid: () => void;
+  populateFormData: (data: FormData) => void;
+}) {
   const searchAPI = new SearchAPI();
 
   const {
@@ -22,6 +29,7 @@ export default function ArtistsForm({ isValid }: { isValid: () => void }) {
   const handleNext = () => {
     if (selectedItems.length === 0) {
     } else {
+      populateFormData({ artists: [...selectedItems] });
       isValid();
       console.log("Proceeding to next step with artists:", selectedItems);
     }
