@@ -9,9 +9,11 @@ import { FormData } from "../multi-page-form";
 export default function ArtistsForm({
   isValid,
   populateFormData,
+  submitForm,
 }: {
   isValid: () => void;
   populateFormData: (data: FormData) => void;
+  submitForm: (data: FormData) => void;
 }) {
   const searchAPI = new SearchAPI();
 
@@ -31,7 +33,6 @@ export default function ArtistsForm({
     } else {
       populateFormData({ artists: [...selectedItems] });
       isValid();
-      console.log("Proceeding to next step with artists:", selectedItems);
     }
   };
 
@@ -46,6 +47,7 @@ export default function ArtistsForm({
       error={error}
       handleNext={handleNext}
       isLoading={isLoading}
+      submit={submitForm}
       keyWord="Gotta Know Your Favorite Artists"
     />
   );
