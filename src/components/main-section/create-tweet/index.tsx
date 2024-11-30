@@ -1,7 +1,12 @@
 import Avatar from "@/components/ui/avatar";
 import TweetTextBox from "./tweet-text-box";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/redux/store";
 
 const CreateTweet = () => {
+  const selector = useSelector(
+    (state: RootState) => state.userReducer.userData
+  );
   return (
     <div>
       <div className="flex w-full justify-around text-center text-md text-gray-600">
@@ -14,7 +19,11 @@ const CreateTweet = () => {
       </div>
       <section className="px-4 py-4 grid grid-cols-[auto,1fr] gap-4 border-t">
         <Avatar
-          src="https://avatars.githubusercontent.com/u/21146643?s=400&u=8f4932274619bcbee8f811f9e1dde0f2c6290af3&v=4"
+          src={
+            selector.image
+              ? selector.image
+              : "https://avatars.githubusercontent.com/u/21146643?s=400&u=8f4932274619bcbee8f811f9e1dde0f2c6290af3&v=4"
+          }
           alt="Profile"
         />
         <div className="w-full">

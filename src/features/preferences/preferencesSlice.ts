@@ -5,7 +5,7 @@ export type InitialState = { preferences: FormData };
 const initialState: InitialState = {
   preferences: {
     genres: [],
-    artists: [],
+    favoriteArtists: [],
   },
 };
 
@@ -19,9 +19,8 @@ export const preferencesSlice = createSlice({
       );
     },
     addArtists: (state, action: { payload: string[] }) => {
-      state.preferences.artists = state.preferences.artists?.concat(
-        action.payload
-      );
+      state.preferences.favoriteArtists =
+        state.preferences.favoriteArtists?.concat(action.payload);
     },
   },
 });

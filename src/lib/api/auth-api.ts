@@ -35,7 +35,7 @@ export class AuthAPI {
   private async fetchNewUserStatusAPI(): Promise<boolean> {
     try {
       const res = await axios.get(`${userURL}/new-user-status`, AuthAPI.CONFIG);
-      this.isNewUser = res.data;
+      this.isNewUser = res.data.isNew;
       return this.isNewUser;
     } catch (err) {
       throw new Error(`Failed to fetch new user: ${(err as Error).message}`);

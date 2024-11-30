@@ -8,7 +8,7 @@ import type { RootState } from "@/redux/store";
 
 export interface FormData {
   genres?: string[];
-  artists?: string[];
+  favoriteArtists?: string[];
 }
 
 export default function MultiPageForm() {
@@ -32,8 +32,8 @@ export default function MultiPageForm() {
     if (data.genres) {
       dispatch(addGenres(data.genres));
     }
-    if (data.artists) {
-      dispatch(addArtists(data.artists));
+    if (data.favoriteArtists) {
+      dispatch(addArtists(data.favoriteArtists));
     }
   }
 

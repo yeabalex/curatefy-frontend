@@ -1,6 +1,10 @@
 export type User = {
-  displayName: string;
-  email: string;
-  spotifyId: string;
-  image: string;
+  displayName: string | null;
+  email: string | null;
+  spotifyId: string | null;
+  image: string | null;
+  preferences?: {
+    genres: string[];
+    favoriteArtists: string[];
+  };
 };

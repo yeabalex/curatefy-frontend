@@ -1,6 +1,6 @@
 // components/ArtistsForm.tsx
 import React from "react";
-import { useSearch } from "@/hooks/useSearch";
+import { useSearch } from "@/lib/hooks/useSearch";
 import { SearchAPI } from "@/lib/api/search-api";
 import FirstTimeForm from "../first-time-form";
 import { Artist } from "@/types/artist.type";
@@ -31,7 +31,7 @@ export default function ArtistsForm({
   const handleNext = () => {
     if (selectedItems.length === 0) {
     } else {
-      populateFormData({ artists: [...selectedItems] });
+      populateFormData({ favoriteArtists: [...selectedItems] });
       isValid();
     }
   };
