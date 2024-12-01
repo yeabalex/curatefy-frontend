@@ -31,7 +31,7 @@ const CreateTweet = () => {
           <div className="flex items-center justify-between gap-4">
             <div className="hover:bg-sky-100 p-2 rounded-full transition-colors duration-500 ease-out cursor-pointer mobile:hidden"></div>
           </div>
-          <button className="bg-sky-500 hover:bg-sky-400 hover-transition px-5 py-2 text-white font-bold rounded-full max-w-2xl mobile:w-auto">
+          <button className="bg-primary hover:bg-sky-400 hover-transition px-5 py-2 text-white font-bold rounded-full max-w-2xl mobile:w-auto">
             Post
           </button>
         </div>
