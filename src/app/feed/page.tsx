@@ -20,7 +20,7 @@ export default function Feed() {
     );
   } else {
     return (
-      <div className="px-0 md:px-28 flex justify-between">
+      <div className="px-0 md:px-8 flex justify-center w-full">
         <MainSection />
         <RightSideBar />
       </div>

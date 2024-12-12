@@ -14,7 +14,7 @@ const TrendsLoading = () => (
 
 const RightSideBar = () => {
   return (
-    <div className="hidden md:block px-8 space-y-2">
+    <div className="hidden md:block px-8 space-y-2 w-[28rem]">
       <section className="sticky top-0 py-3 bg-secondary z-10 rounded-full">
         <div className="flex items-center gap-4 px-4 py-2 bg-secondary rounded-full">
           <IoSearchOutline />
