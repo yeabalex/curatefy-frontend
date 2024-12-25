@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import GenresForm from "./genres/genres";
 import ArtistsForm from "./artists/artists";
 import APIClient from "@/lib/api/api-client";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { addGenres, addArtists } from "@/features/preferences/preferencesSlice";
-import type { RootState } from "@/redux/store";
 
 export interface FormData {
   genres?: string[];
@@ -13,18 +12,15 @@ export interface FormData {
 
 export default function MultiPageForm() {
   const [index, setIndex] = useState(0);
-  const [i, setI] = useState<number>(0);
   const dispatch = useDispatch();
-  const selector = useSelector(
-    (state: RootState) => state.preferenceReducer.preferences
-  );
 
   const formArray = [
-    <GenresForm isValid={validate} populateFormData={populateFormData} />,
+    <GenresForm isValid={validate} populateFormData={populateFormData} key={1} />,
     <ArtistsForm
       isValid={validate}
       populateFormData={populateFormData}
       submitForm={sendFormData}
+      key={2}
     />,
   ];
 

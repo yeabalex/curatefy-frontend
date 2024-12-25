@@ -1,5 +1,3 @@
-type Nullable<T> = T | null;
-
 type TweetType = {
   _id: string;
   content: string;

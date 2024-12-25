@@ -23,6 +23,7 @@ export const useAuth = () => {
         const firstTime = await auth.getNewUserStatus();
         setIsNewUser(firstTime);
       } catch (err) {
+        console.error(err)
         router.push(clientURL);
       }
     };

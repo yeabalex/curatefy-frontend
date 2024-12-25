@@ -83,7 +83,7 @@ function SpinnerIcon({ className }: IconProps): JSX.Element {
   );
 }
 
-function SpotifyIcon({ className }: IconProps): JSX.Element {
+function SpotifyIcon(): JSX.Element {
   return (
     <svg
       role="img"

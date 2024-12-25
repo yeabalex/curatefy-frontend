@@ -4,7 +4,7 @@ import { FaArrowRight, FaTimes, FaSpinner } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { FormData } from "./multi-page-form";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
 
 interface FirstTimeFormProps {

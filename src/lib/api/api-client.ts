@@ -11,7 +11,7 @@ class APIClient {
   public static async req(
     method: "get" | "post" | "put" | "delete",
     endpoint: string,
-    data: any = null
+    data?:unknown
   ) {
     try {
       let res;
