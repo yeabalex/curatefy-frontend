@@ -47,7 +47,7 @@ export function LoginMain(): JSX.Element {
               className="inner:custom-underline inner:custom-underline text-center text-xs
                          text-light-secondary inner:text-accent-blue dark:text-dark-secondary"
             >
-              The instance deployed on EC2 has been stopped{" "}
+              The server deployed on EC2 instance has been stopped{" "}
               <a
                 href="https://twitter.com/tos"
                 target="_blank"
