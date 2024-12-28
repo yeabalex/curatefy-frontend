@@ -47,29 +47,29 @@ export function LoginMain(): JSX.Element {
               className="inner:custom-underline inner:custom-underline text-center text-xs
                          text-light-secondary inner:text-accent-blue dark:text-dark-secondary"
             >
-              By signing up, you agree to the{" "}
+              Instance has been stopped{" "}
               <a
                 href="https://twitter.com/tos"
                 target="_blank"
                 rel="noreferrer"
               >
-                Terms of Service
+                For cost reasons
               </a>{" "}
-              and{" "}
+              Alternatively{" "}
               <a
                 href="https://twitter.com/privacy"
                 target="_blank"
                 rel="noreferrer"
               >
-                Privacy Policy
+                
               </a>
-              , including{" "}
+              , you can clone the repo and test it on your local machine{" "}
               <a
                 href="https://help.twitter.com/rules-and-policies/twitter-cookies"
                 target="_blank"
                 rel="noreferrer"
               >
-                Cookie Use
+                Thank you for visiting.
               </a>
               .
             </p>
