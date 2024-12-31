@@ -10,8 +10,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'https://curatefy-backend-production.up.railway.app/:path*',
+        source: '/api/v1/:path*',
+        destination: 'https://curatefy-backend-production.up.railway.app/api/v1/:path*',
       }
     ]
   },
