@@ -1,7 +1,7 @@
 import axios from "axios";
 import { userURL } from "@/constants/url";
 import type { User } from "@/types/user.type";
-import { clientURL } from "@/constants/url";
+//import { clientURL } from "@/constants/url";
 
 export class AuthAPI {
   private user: User | null = null;
