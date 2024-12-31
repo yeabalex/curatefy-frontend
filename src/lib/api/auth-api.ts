@@ -8,7 +8,7 @@ export class AuthAPI {
   private status: boolean = false;
   private isNewUser: boolean = false;
   static CONFIG = {
-    headers: { Origin: clientURL, "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json" },
     withCredentials: true,
   };
 

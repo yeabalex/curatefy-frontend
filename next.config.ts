@@ -12,12 +12,9 @@ const nextConfig: NextConfig = {
       {
         source: '/api/:path*',
         destination: 'https://curatefy-backend-production.up.railway.app/:path*',
-        experimental: {
-          allowedHeaders: ['cookie', 'set-cookie']
-        }
       }
     ]
-  }
+  },
 };
 
 export default nextConfig;
