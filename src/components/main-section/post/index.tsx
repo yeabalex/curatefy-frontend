@@ -8,7 +8,6 @@ type Props = {
 };
 
 export const Tweet = ({ tweet }: Props) => {
-  // Safely handle images by using an empty array as fallback
   const tweetImages = tweet.images || [];
 
   return (

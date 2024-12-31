@@ -69,7 +69,7 @@ const CreateTweet = ({setE}:{setE:(val:boolean)=>void}) => {
   
     try {
       const response = await axios.post(
-        `http://35.162.119.64/api/v1/posts/create?userID=${selector.spotifyId}`,
+        `https://curatefy-backend-production.up.railway.app/api/v1/posts/create?userID=${selector.spotifyId}`,
         formData,
         {
           headers: {
