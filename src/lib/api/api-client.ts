@@ -4,7 +4,11 @@ import axios from "axios";
 
 class APIClient {
   static CONFIG = {
-    headers: { Origin: clientURL, "Content-Type": "application/json" },
+    headers: { 
+      Origin: clientURL, 
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Credentials": "true"
+    },
     withCredentials: true,
   };
 
