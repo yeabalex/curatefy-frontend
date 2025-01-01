@@ -1,11 +1,10 @@
-import { clientURL } from "@/constants/url";
+//import { clientURL } from "@/constants/url";
 import { userURL } from "@/constants/url";
 import axios from "axios";
 
 class APIClient {
   static CONFIG = {
     headers: { 
-      Origin: clientURL, 
       "Content-Type": "application/json",
     },
     withCredentials: true,

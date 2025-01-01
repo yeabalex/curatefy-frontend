@@ -1,12 +1,29 @@
 //import { useAuth } from '@lib/contex/t/auth-context';
-
+'use client'
 import { NextImage } from "@/components/ui/next-image";
 import { CustomIcon } from "@/components/ui/custom-icon";
 import { Button } from "@/components/ui/button";
-import { userURL } from "@/constants/url";
-import Link from "next/link";
+//import { userURL } from "@/constants/url";
+//import Link from "next/link";
+import axios from "axios";
 
 export function LoginMain(): JSX.Element {
+
+const initiateSpotifyLogin = async () => {
+  try {
+     await axios.get("https://curatefy-backend-production.up.railway.app/api/v1/login", {
+      withCredentials: true, 
+    });
+
+    /*if (response?.data?.redirectURL) {
+      window.location.href = response.data.redirectURL;
+    }*/
+  } catch (error) {
+    console.error("Error initiating Spotify login:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
+
   return (
     <main className="grid lg:grid-cols-[1fr,45vw]">
       <div className="relative hidden items-center justify-center  lg:flex">
@@ -31,18 +48,14 @@ export function LoginMain(): JSX.Element {
         </div>
         <div className="flex max-w-xs flex-col gap-6 [&_button]:py-2">
           <div className="grid gap-3 font-bold">
-            <Link
-              href={`${userURL}/login`}
-              className="flex justify-center md:justify-start items-center"
-            >
               <Button
                 className="p-8 rounded-sm flex justify-center gap-2 border border-light-line-reply font-medium text-light-primary transition
           focus-visible:bg-[#e6e6e6] dark:border-0 
                          dark:hover:brightness-90 dark:focus-visible:brightness-90 dark:active:brightness-75 text-white dark:text-black bg-primary"
+                         onClick={initiateSpotifyLogin}
               >
                 <CustomIcon iconName="SpotifyIcon" /> Sign up with Spotify
               </Button>
-            </Link>
             <p
               className="inner:custom-underline inner:custom-underline text-center text-xs
                          text-light-secondary inner:text-accent-blue dark:text-dark-secondary"
