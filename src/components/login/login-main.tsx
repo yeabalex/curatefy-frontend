@@ -60,13 +60,12 @@ const initiateSpotifyLogin = async () => {
               className="inner:custom-underline inner:custom-underline text-center text-xs
                          text-light-secondary inner:text-accent-blue dark:text-dark-secondary"
             >
-              The server deployed on EC2 instance has been stopped{" "}
+              The spotify quota is limited{" "}
               <a
                 href="https://twitter.com/tos"
                 target="_blank"
                 rel="noreferrer"
               >
-                For cost reasons
               </a>{" "}
               Alternatively{" "}
               <a
@@ -82,7 +81,7 @@ const initiateSpotifyLogin = async () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Thank you for visiting.
+                Use you spotify client and secret key on the server
               </a>
               .
             </p>
