@@ -7,7 +7,6 @@ class APIClient {
     headers: { 
       Origin: clientURL, 
       "Content-Type": "application/json",
-      "Access-Control-Allow-Credentials": "true"
     },
     withCredentials: true,
   };
