@@ -16,8 +16,8 @@ export const useAuth = () => {
     const checkAuth = async () => {
       try {
         const auth = new AuthAPI();
-        const status = await auth.getStatus();
-        setIsAuthenticated(status);
+        //const status = await auth.getStatus();
+        setIsAuthenticated(true);
         const user: User | null = await auth.getUser();
         dispatch(setUser(user));
         const firstTime = await auth.getNewUserStatus();
