@@ -3,26 +3,28 @@
 import { NextImage } from "@/components/ui/next-image";
 import { CustomIcon } from "@/components/ui/custom-icon";
 import { Button } from "@/components/ui/button";
-//import { userURL } from "@/constants/url";
-//import Link from "next/link";
+import { userURL } from "@/constants/url";
+import Link from "next/link";
 import axios from "axios";
+import { useEffect } from "react";
+
 
 export function LoginMain(): JSX.Element {
 
 const initiateSpotifyLogin = async () => {
   try {
-     await axios.get("https://curatefy-backend-production.up.railway.app/api/v1/login", {
+     await axios.get("https://curatefy-backend-production.up.railway.app", {
       withCredentials: true, 
     });
-
-    /*if (response?.data?.redirectURL) {
-      window.location.href = response.data.redirectURL;
-    }*/
   } catch (error) {
     console.error("Error initiating Spotify login:", error);
     alert("Something went wrong. Please try again.");
   }
 };
+
+useEffect(()=>{
+  initiateSpotifyLogin()
+},[])
 
   return (
     <main className="grid lg:grid-cols-[1fr,45vw]">
@@ -48,6 +50,7 @@ const initiateSpotifyLogin = async () => {
         </div>
         <div className="flex max-w-xs flex-col gap-6 [&_button]:py-2">
           <div className="grid gap-3 font-bold">
+            <Link href={`${userURL}/login`}>
               <Button
                 className="p-8 rounded-sm flex justify-center gap-2 border border-light-line-reply font-medium text-light-primary transition
           focus-visible:bg-[#e6e6e6] dark:border-0 
@@ -56,6 +59,7 @@ const initiateSpotifyLogin = async () => {
               >
                 <CustomIcon iconName="SpotifyIcon" /> Sign up with Spotify
               </Button>
+              </Link>
             <p
               className="inner:custom-underline inner:custom-underline text-center text-xs
                          text-light-secondary inner:text-accent-blue dark:text-dark-secondary"
