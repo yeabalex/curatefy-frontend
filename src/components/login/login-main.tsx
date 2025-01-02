@@ -13,9 +13,7 @@ export function LoginMain(): JSX.Element {
 
 const initiateSpotifyLogin = async () => {
   try {
-     await axios.get("https://curatefy-backend-production.up.railway.app", {
-      withCredentials: true, 
-    });
+     await axios.get("https://curatefy-backend-production.up.railway.app");
   } catch (error) {
     console.error("Error initiating Spotify login:", error);
     alert("Something went wrong. Please try again.");
