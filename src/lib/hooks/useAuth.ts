@@ -21,7 +21,7 @@ export const useAuth = () => {
         const user: User | null = await auth.getUser();
         dispatch(setUser(user));
         const firstTime = await auth.getNewUserStatus();
-        setIsNewUser(firstTime);
+        setIsNewUser(false);
       } catch (err) {
         console.error(err)
         router.push(clientURL);
