@@ -11,18 +11,6 @@ import { useEffect } from "react";
 
 export function LoginMain(): JSX.Element {
 
-const initiateSpotifyLogin = async () => {
-  try {
-     await axios.get("https://curatefy-backend-production.up.railway.app");
-  } catch (error) {
-    console.error("Error initiating Spotify login:", error);
-    alert("Something went wrong. Please try again.");
-  }
-};
-
-useEffect(()=>{
-  initiateSpotifyLogin()
-},[])
 
   return (
     <main className="grid lg:grid-cols-[1fr,45vw]">
@@ -53,7 +41,7 @@ useEffect(()=>{
                 className="p-8 rounded-sm flex justify-center gap-2 border border-light-line-reply font-medium text-light-primary transition
           focus-visible:bg-[#e6e6e6] dark:border-0 
                          dark:hover:brightness-90 dark:focus-visible:brightness-90 dark:active:brightness-75 text-white dark:text-black bg-primary"
-                         onClick={initiateSpotifyLogin}
+  
               >
                 <CustomIcon iconName="SpotifyIcon" /> Sign up with Spotify
               </Button>
