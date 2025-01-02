@@ -25,7 +25,7 @@ export class AuthAPI {
   private async fetchStatusAPI(): Promise<boolean> {
     try {
       const res = await axios.get(`${userURL}/status`, AuthAPI.CONFIG);
-      this.status = res.status === 200;
+      this.status = res.status === 200||res.status === 302||res.status === 304;
       return this.status;
     } catch (err) {
       throw new Error(`Failed to fetch status: ${(err as Error).message}`);
