@@ -16,11 +16,10 @@ export const useAuth = () => {
     const checkAuth = async () => {
       try {
         const auth = new AuthAPI();
-        //const status = await auth.getStatus();
-        setIsAuthenticated(true);
         const user: User | null = await auth.getUser();
+        setIsAuthenticated(user!==null)
         dispatch(setUser(user));
-        const firstTime = await auth.getNewUserStatus();
+        //const firstTime = await auth.getNewUserStatus();
         setIsNewUser(false);
       } catch (err) {
         console.error(err)
