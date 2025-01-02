@@ -5,8 +5,6 @@ import { CustomIcon } from "@/components/ui/custom-icon";
 import { Button } from "@/components/ui/button";
 import { userURL } from "@/constants/url";
 import Link from "next/link";
-import axios from "axios";
-import { useEffect } from "react";
 
 
 export function LoginMain(): JSX.Element {
